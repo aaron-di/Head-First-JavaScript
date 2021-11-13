@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Playlist</title>
+        <meta charset="utf-8" />
+        <script>
+            function addSongs() {
+                var song1 = document.getElementById("song1");
+
+                var song2 = document.getElementById("song2");
+
+                var song3 = document.getElementById("song3");
+
+                song1.innerHTML = "Blue Suede Strings, by Elvis Pagely";
+                song2.innerHTML = "Great Objects on Fire, by Jerry JSON Lewis";
+                song3.innerHTML = "I Code the Line, by Johnny JavaScript";
+            }
+            window.onload = addSongs; //千万不要在函数名后添加括号，因为这里不是调用函数，而只是将函数作为一个值赋给属性window.onload。
+        </script>
+    </head>
+    <body>
+        <h1>My awesome playlist</h1>
+        <ul id="playlist">
+            <li id="song1"></li>
+            <li id="song2"></li>
+            <li id="song3"></li>
+        </ul>
+    </body>
+</html>
