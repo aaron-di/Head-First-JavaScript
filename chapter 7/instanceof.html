@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Experiment of instanceof</title>
+    </head>
+    <body>
+        <script>
+            function Duck(sound) {
+                this.sound = sound;
+                this.quack = function () {
+                    console.log(this.sound);
+                };
+            }
+
+            var toy = new Duck("quack quack");
+
+            toy.quack();
+
+            console.log(typeof toy);
+            console.log(toy instanceof Duck);
+        </script>
+    </body>
+</html>
