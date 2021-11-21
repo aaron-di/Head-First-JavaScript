@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Passengers</title>
+        <script>
+            var passengers = [
+                { name: "Jane Doloop", paid: true, ticket: "coach" },
+                { name: "Dr. Evel", paid: true, ticket: "firstclass" },
+                { name: "Sue Property", paid: false, ticket: "firstclass" },
+                { name: "John Funcall", paid: true, ticket: "premium" },
+            ];
+            function processPassengers(passengers, testFunction) {
+                for (let i = 0; i < passengers.length; i++) {
+                    const element = passengers[i];
+                    if (testFunction(element)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            function checkNoFlyList(passenger) {
+                return passenger.name === "Dr. Evel";
+            }
+            function checkNotPaid(passenger) {
+                return !passenger.paid;
+            }
+
+            var allCanFly = processPassengers(passengers, checkNoFlyList);
+            if (!allCanFly) {
+                console.log("The plane can't take off: we have a passenger on the no-fly-list.");
+            }
+            var allPaid = processPassengers(passengers, checkNotPaid);
+            if (!allPaid) {
+                console.log("The plane can't take off: not everyone has paid.");
+            }
+
+            function printPassenger(passenger) {
+                var message = passenger.name;
+                if (passenger.paid === true) {
+                    message = message + " has paid";
+                } else {
+                    message = message + " has not paid";
+                }
+                console.log(message);
+                return false;
+            }
+            processPassengers(passengers, printPassenger); //print所有的乘客
+
+            function serveCustomer(passenger) {
+                var getDrinkOrderFunction = createDrinkOrder(passenger);
+                var getDinnerOrderFunction = createDinnerOrder(passenger);
+                getDrinkOrderFunction();
+                //让乘客点餐
+                getDinnerOrderFunction();
+                //播放电影
+                //清理垃圾
+            }
+            function createDrinkOrder(passenger) {
+                var orderFunction;
+                if (passenger.ticket === "firstclass") {
+                    orderFunction = function () {
+                        alert("Would you like a cocktail or wine?");
+                    };
+                } else if (passenger.ticket === "premium") {
+                    orderFunction = function () {
+                        alert("Would you like wine, cola or water");
+                    };
+                } else {
+                    orderFunction = function () {
+                        alert("Your choice is cola or water.");
+                    };
+                }
+                return orderFunction;
+            }
+            function createDinnerOrder(passenger) {
+                var orderFunction;
+                if (passenger.ticket === "firstclass") {
+                    orderFunction = function () {
+                        alert("Would you like chicken or pasta?");
+                    };
+                } else if (passenger.ticket === "premium") {
+                    orderFunction = function () {
+                        alert("Would you like a snack box or cheese plate?");
+                    };
+                } else {
+                    orderFunction = function () {
+                        alert("Would you like peanuts or pretzels?");
+                    };
+                }
+                return orderFunction;
+            }
+            function servePassengers(passengers) {
+                for (let i = 0; i < passengers.length; i++) {
+                    const element = passengers[i];
+                    serveCustomer(element);
+                }
+            }
+            servePassengers(passengers);
+        </script>
+    </head>
+    <body></body>
+</html>

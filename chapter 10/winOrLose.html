@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Win or Lose</title>
+        <script>
+            var winner = function () {
+                alert("WINNER!");
+            };
+            var loser = function () {
+                alert("LOSER!");
+            };
+            // 咱们来热热身
+            winner();
+            // 将函数引用赋给其他变量
+            var a = winner;
+            var b = loser;
+            var c = loser;
+            a();
+            b();
+            // 来玩一个猜豆子游戏，看看你的运气怎样
+            c = a;
+            a = b;
+            b = c;
+            c = a;
+            a = c;
+            a = b;
+            b = c;
+            a();
+        </script>
+    </head>
+    <body></body>
+</html>
