@@ -1,3 +1,4 @@
+//函数声明
 function quack(num) {
     for (var i = 0; i < num; i++) {
         console.log("Quack!");
@@ -5,6 +6,7 @@ function quack(num) {
 }
 quack(3);
 
+//函数表达式
 var fly = function (num) {
     for (var i = 0; i < num; i++) {
         console.log("Flying!");
