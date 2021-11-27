@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Make Counter</title>
+        <script>
+            function makeCounter() {
+                //这个函数与前面的makeCounter类似，只是它返回一个包含方法increment的对象，而不是直接返回一个函数
+                var count = 0;
+                return {
+                    increment: function () {
+                        //方法increment包含一个自由变量count，因此它是一个闭包，其环境中包含count
+                        count++;
+                        return count;
+                    },
+                };
+            }
+
+            var counter = makeCounter(); //调用makeCounter，获得一个对象，包含一个闭包的方法
+            console.log(counter.increment());
+            console.log(counter.increment());
+            console.log(counter.increment());
+        </script>
+    </head>
+    <body></body>
+</html>
