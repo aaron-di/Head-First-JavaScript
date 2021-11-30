@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inner</title>
+        <script>
+            var now = new Date();
+            var dateString = now.toString(); // 返回一个表示日期的字符串
+            var theYear = now.getFullYear(); // 返回日期中的年份
+            var theDayOfWeek = now.getDay(); // 返回一个数字，指出日期对象表示的说星期几
+
+            // 想构造函数Date传递参数来创建表示任何日期或时间的日期对象
+            var birthday = new Date("May 1, 1983");
+            var birthday = new Date("May 1, 1983 08:03 pm");
+
+            var emptyArray = new Array(); // 创建一个长度为零的空数组
+            emptyArray[0] = 99;
+            var oddNumbers = new Array(3); // 创建一个长度为3的数组，再使用值填充它
+            oddNumbers[0] = 1;
+            oddNumbers[1] = 3;
+            oddNumbers[2] = 5;
+            oddNumbers.reverse(); // 按相反的顺序排列数组的所有元素
+            var aString = oddNumbers.join(" - "); //方法join将数组oddNumbers中的值并成一个字符串，这里在值之间加上-
+            var areAllOdd = oddNumbers.every(function (x) {
+                //方法every将一个函数作为参数；对于数组中的每个值，都调用这个函数，如果对所有元素函数都返回true，则方法every返回true
+                return x % 2 !== 0;
+            });
+
+            var items = new Array();
+            var items = [];
+            var items = ["a", "b", "c"];  // 数组字面量语法
+            var items = new Array("a", "b", "c");  // 如果传入了多个实参，创建的数组将以这些值作为元素
+
+            var n = getNumberOfWidgetsFromDataBase();
+            var widgets = new Array(n);
+            for (var i = 0; i < n; i++) {
+                widgets[i] = getDatabaseRecord(i);
+            }
+        </script>
+    </head>
+    <body></body>
+</html>
