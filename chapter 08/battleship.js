@@ -41,7 +41,7 @@ var model = {
             }
         }
         view.displayMiss(guess);
-        view.displayMessage("You sank my battleship!");
+        view.displayMessage("You missed.");
         return false;
     },
     isSunk: function (ship) {
